@@ -2,11 +2,11 @@ def ver
 
 pipeline{
   
-  environment {
+ /* environment {
     IMAGE = readMavenPom().getArtifactId()
     VERSION = readMavenPom().getVersion()
     }
-
+*/
   
   
   agent any
@@ -29,7 +29,7 @@ pipeline{
       steps{
         script{
          ver = "${env.GIT_BRANCH}--${env.BUILD_NUMBER}"
-        echo "${ver}--${VERSION}--${IMAGE}"
+        echo "${ver}"
       }
       }  
     }  
