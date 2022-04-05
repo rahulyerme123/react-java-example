@@ -1,4 +1,13 @@
+def ver
+
 pipeline{
+  
+  environment {
+    IMAGE = readMavenPom().getArtifactId()
+    VERSION = readMavenPom().getVersion()
+    }
+
+  
   
   agent any
   
@@ -16,5 +25,11 @@ pipeline{
        }
          
     }
+    stage("Create Version Of java Application"){
+      steps{
+         ver =   "${env.GIT_BRANCH}--${env.BUILD_NUMBER}"
+        echo "${ver}--${VERSION}--${IMAGE}"
+      }
+    }  
   }
 }
