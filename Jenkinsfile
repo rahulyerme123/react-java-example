@@ -27,9 +27,12 @@ pipeline{
     }
     stage("Create Version Of java Application"){
       steps{
-         ver =   "${env.GIT_BRANCH}--${env.BUILD_NUMBER}"
+        script{
+         ver = "${env.GIT_BRANCH}--${env.BUILD_NUMBER}"
         echo "${ver}--${VERSION}--${IMAGE}"
       }
+      }  
     }  
   }
+    
 }
