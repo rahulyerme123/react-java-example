@@ -20,7 +20,7 @@ pipeline{
      stage('Build Java Application'){
        steps{
          script{
-           sh 'mvn clean install'
+           sh 'mvn clean package'
          }
        }
          
