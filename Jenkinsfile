@@ -33,6 +33,13 @@ pipeline{
       }
       }  
     }  
+    stage("publishCode Coverage"){
+      steps{
+        script{
+          publishCoverage adapters: [jacocoAdapter('/target')], sourceFileResolver: sourceFiles('NEVER_STORE')
+        }
+      }
+    }
   }
     
 }
