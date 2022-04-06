@@ -51,7 +51,7 @@ pipeline{
     stage('Local artifact archive') {
       steps {
         script{
-        archiveArtifacts artifacts : 'target/*.jar'
+        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
       }
     }
     }
