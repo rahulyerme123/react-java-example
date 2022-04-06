@@ -48,6 +48,13 @@ pipeline{
         }
       }
     }
+    stage('Local artifact archive') {
+      steps {
+        script{
+        archiveArtifacts artifacts : 'target/app*.jar'
+      }
+    }
+    }
   }
     
 }
