@@ -37,6 +37,14 @@ pipeline{
       steps{
         script{
           publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco*.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+          
+        }
+      }
+    }
+    stage("Junit Publish Test"){
+      steps{
+        script{
+          junit allowEmptyResults: true, testDataPublishers: [[$class: 'AttachmentPublisher']], testResults: '/target/surefire-reports/*.xml'
         }
       }
     }
