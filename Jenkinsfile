@@ -55,7 +55,7 @@ pipeline{
       }
     }
     }
-    stage(Nexus Repository Upload ){
+    stage("Nexus Repository Upload" ){
       steps{
         script{
           nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '',
