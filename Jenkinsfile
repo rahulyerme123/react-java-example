@@ -59,7 +59,7 @@ pipeline{
       steps{
         script{
           nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '',
-                                             file: 'target/users-SNAPSHOT.jar',
+                                             file: 'users-0.0.1-SNAPSHOT.jar',
                                              type: 'jar']], 
                                              credentialsId: 'newnexus', 
                                              groupId: 'com.bbtutorials',
