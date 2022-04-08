@@ -33,6 +33,13 @@ pipeline{
       }
       }  
     }  
+    stage("Junit Publish Test"){
+      steps{
+        script{
+          junit allowEmptyResults: true, testDataPublishers: [[$class: 'AttachmentPublisher']], testResults: '/target/surefire-reports/*.xml'
+        }
+      }
+    }
     stage("publishCode Coverage"){
       steps{
         script{
@@ -41,13 +48,7 @@ pipeline{
         }
       }
     }
-    stage("Junit Publish Test"){
-      steps{
-        script{
-          junit allowEmptyResults: true, testDataPublishers: [[$class: 'AttachmentPublisher']], testResults: '/target/surefire-reports/*.xml'
-        }
-      }
-    }
+    
     stage('Local artifact archive') {
       steps {
         script{
