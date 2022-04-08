@@ -58,15 +58,16 @@ pipeline{
     stage("Nexus Repository Upload" ){
       steps{
         script{
-          nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '',
-                                             file: 'target/users-0.0.1-SNAPSHOT.jar',
-                                             type: 'jar']], 
-                                             credentialsId: 'newnexus', 
-                                             groupId: 'com.bbtutorials',
-                                             nexusUrl: 'http://192.168.33.10:8081',
-                                             nexusVersion: 'nexus3', protocol: 'http', 
-                                             repository: 'Javaapplication', 
-                                             version: '0.0.1-SNAPSHOT'
+         nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
+                                            file: 'target/users-0.0.1.jar',
+                                            type: 'jar']], 
+                                            credentialsId: 'newnexus', 
+                                            groupId: 'com.bbtutorials', 
+                                            nexusUrl: '192.168.33.10:8081', 
+                                            nexusVersion: 'nexus3', 
+                                            protocol: 'http', 
+                                            repository: 'http://192.168.33.10:8081/repository/Javaapplication/',
+                                            version: '0.0.1'
         }
       }
     }
