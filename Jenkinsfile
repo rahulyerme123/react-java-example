@@ -36,7 +36,8 @@ pipeline{
     stage("Junit Publish Test"){
       steps{
         script{
-          junit allowEmptyResults: true, testDataPublishers: [[$class: 'AttachmentPublisher']], testResults: '/target/surefire-reports/*.xml'
+          junit allowEmptyResults: true, skipPublishingChecks: true, testDataPublishers: [[$class: 'AttachmentPublisher']],
+               testResults: '/target/surefire-reports/*.xml'
         }
       }
     }
