@@ -73,6 +73,15 @@ pipeline{
         }
       }
     }
+    stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('Sonarqube') {
+                    
+                    withMaven(maven:'Maven 3.3.9') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                }
+            }
   }
     
 }
