@@ -44,7 +44,7 @@ pipeline{
     stage("publishCode Coverage"){
       steps{
         script{
-          publishCoverage adapters: [jacocoAdapter('target/site/jacoco/jacoco*.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+          publishCoverage adapters: [jacocoAdapter('**/target/jacoco.exec')], sourceFileResolver: sourceFiles('NEVER_STORE')
           
         }
       }
