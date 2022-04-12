@@ -1,6 +1,12 @@
 def ver
 
 pipeline{
+  environment {
+    registry = "rahulyerme1234/javaapplication"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
+  
   
  /* environment {
     IMAGE = readMavenPom().getArtifactId()
@@ -83,6 +89,13 @@ pipeline{
                 }
             }
     }
+    stage('Building our image') {
+     steps{
+      script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+    }
+  }
+ }
   }
     
 }
