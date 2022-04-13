@@ -91,11 +91,11 @@ pipeline{
     }
     */
     stage('Sonarqube') {
-    /*environment {
+    environment {
         scannerHome = tool 'sonar'
-               }*/
+               }
     steps {
-        withSonarQubeEnv('sonarqube') {
+        withSonarQubeEnv('Sonarqube') {
             sh "${scannerHome}/opt/sonarqube"
         }
     }
