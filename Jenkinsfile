@@ -79,7 +79,7 @@ pipeline{
         }
       }
     }
-    stage('build && SonarQube analysis') {
+   /* stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('Sonarqube') {
                     
@@ -88,6 +88,17 @@ pipeline{
                     }
                 }
             }
+    }
+    */
+    stage('Sonarqube') {
+    /*environment {
+        scannerHome = tool 'sonar'
+               }*/
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/opt/sonarqube"
+        }
+    }
     }
     stage('Building our image') {
      steps{
