@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-react-app
+spec:
+  selector:
+    matchLabels:
+      run: my-react-app
+  template:
+    metadata:
+      labels:
+        run: my-react-app
+    spec:
+      containers:
+      - name: my-react-app
+        image: rahulyerme1234/reactapplication:1
+        ports:
+        - containerPort: 4200
+
+
+
+
+
