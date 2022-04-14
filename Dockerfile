@@ -2,7 +2,7 @@ FROM node:16.13
 
 WORKDIR /Reactjava/react-java-example/src/main/ui
 
-COPY /Reactjava/react-java-example/src/main/ui/package.json ./
+COPY package.json ./
 
 RUN npm install
 
