@@ -63,7 +63,7 @@ pipeline{
       }
     }
     }
-    stage("Nexus Repository Upload" ){
+    /*stage("Nexus Repository Upload" ){
       steps{
         script{
          nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
@@ -78,7 +78,7 @@ pipeline{
                                             version: '1.0.1-SNAPSHOT'
         }
       }
-    }
+    }*/
    /* stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('Sonarqube') {
