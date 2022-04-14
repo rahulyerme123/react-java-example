@@ -23,14 +23,14 @@ pipeline{
        }
   stages{
     
-     stage('Build Java Application'){
+     /*stage('Build Java Application'){
        steps{
          script{
            sh 'mvn clean package'
          }
        }
          
-    }
+    }*/
     stage("Create Version Of java Application"){
       steps{
         script{
