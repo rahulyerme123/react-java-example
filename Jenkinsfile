@@ -90,7 +90,7 @@ pipeline{
             }
     }
     */
-    stage('Sonarqube') {
+  /*  stage('Sonarqube') {
     environment {
         scannerHome = tool 'sonar'
                }
@@ -99,7 +99,7 @@ pipeline{
            sh "${scannerHome}/bin/sonar-scanner"
         }
     }
-    }
+    }*/
     stage('Building our image') {
      steps{
       script {
@@ -107,6 +107,17 @@ pipeline{
     }
   }
  }
+    stage('push docker image') {
+      steps {
+		script {
+			withDockerRegistry(credentialsId: 'dockerhub') {
+			  dockerImage.push("${env.BUILD_NUMBER}")
+			 dockerImage.push("latest")
+			}
+		  }
+        
+      }
+    }
   }
     
 }
