@@ -63,7 +63,7 @@ pipeline{
       }
     }
     }
-    stage("Nexus Repository Upload" ){
+    /*stage("Nexus Repository Upload" ){
       steps{
         script{
          nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
@@ -78,8 +78,8 @@ pipeline{
                                             version: '1.0.1-SNAPSHOT'
         }
       }
-    }
-    stage('build && SonarQube analysis') {
+    }*/
+   /* stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('Sonarqube') {
                     
@@ -89,6 +89,17 @@ pipeline{
                 }
             }
     }
+    */
+  /*  stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'sonar'
+               }
+    steps {
+        withSonarQubeEnv('Sonarqube') {
+           sh "${scannerHome}/bin/sonar-scanner"
+        }
+    }
+    }*/
     stage('Building our image') {
      steps{
       script {
@@ -96,6 +107,17 @@ pipeline{
     }
   }
  }
+    stage('push docker image') {
+      steps {
+		script {
+			withDockerRegistry(credentialsId: 'dockerhub') {
+			  dockerImage.push("${env.BUILD_NUMBER}")
+			 dockerImage.push("latest")
+			}
+		  }
+        
+      }
+    }
   }
     
 }
