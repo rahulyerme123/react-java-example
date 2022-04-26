@@ -1,7 +1,7 @@
 
 FROM node:16.13
 
-WORKDIR /Reactjava/react-java-example/src/main/ui
+WORKDIR /Reactjava/react-java-example
 
 
 COPY **/package.json .
