@@ -4,7 +4,7 @@ FROM node:16.13
 WORKDIR /Reactjava/react-java-example
 
 
-COPY **/package.json .
+COPY package.json .
 
 
 RUN npm install
