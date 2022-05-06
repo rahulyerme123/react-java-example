@@ -21,6 +21,10 @@ pipeline{
     
        maven 'Apache Maven 3.3.9' 
        }
+	triggers {
+	
+pollSCM('H/4 * * * *')
+}
   stages{
     
      stage('Build Java Application'){
