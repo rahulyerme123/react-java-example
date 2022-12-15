@@ -19,7 +19,7 @@ pipeline{
   
   tools {
     
-       maven 'Apache Maven 3.3.9' 
+       maven 'Apache Maven 6' 
        }
 	triggers {
 	
